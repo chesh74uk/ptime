@@ -44,3 +44,12 @@ end
 Then("the new customer details should be shown") do
     expect(page).to have_content("Customer was successfully updated.")
 end
+
+When("the delete customer link is clicked") do
+  @customer = Customer.last
+  find("a[href='#{customer_path(@customer)}']").click
+end
+
+Then("the customer should be deleted") do
+  expect(page).to have_content("Customer was successfully deleted.")
+end

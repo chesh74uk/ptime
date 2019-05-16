@@ -21,3 +21,9 @@ Feature: Customer
     When the edit customer link is clicked
     And the edit form has been filled in and submitted
     Then the new customer details should be shown
+
+  Scenario: Edit customers
+    Given a customer has been created
+    And a web browser is at the customer page
+    When the delete customer link is clicked
+    Then the customer should be deleted
