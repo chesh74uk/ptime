@@ -7,7 +7,7 @@ Feature: Customer
   Scenario: Create customers
     Given a web browser is at the customer page
     When the Add customers button is clicked
-    And the form has been filled in and submitted
+    And the customer form has been filled in and submitted
     Then a new customer should be created
     
   Scenario: Show customers

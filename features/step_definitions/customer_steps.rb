@@ -5,7 +5,7 @@ When("the Manage customers link is clicked") do
 end
 
 Then("show me a list of existing customers") do
-    expect(page). to have_content("Customer 1")
+    expect(page).to have_content("Customer 1")
 end
 
 Given("a web browser is at the customer page") do
@@ -16,7 +16,7 @@ When("the Add customers button is clicked") do
   click_button "Add customer"
 end
 
-When("the form has been filled in and submitted") do
+When("the customer form has been filled in and submitted") do
   expect(page).to have_content("Create customer")
   fill_in "customer_customer_name", with: "Customer 1"
   click_button "Create Customer"

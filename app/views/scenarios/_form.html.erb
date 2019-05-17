@@ -1,0 +1,5 @@
+<%= simple_form_for @scenario do |s| %>
+            <%= s.input :scenario_name, label: 'Scenario name' %>
+            <%= s.input :scenario_description, label: 'Scenario description' %>
+            <%= s.button :submit, class: "btn btn-primary" %>
+<% end %>
