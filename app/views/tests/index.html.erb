@@ -10,8 +10,7 @@
     <tbody>
         <%= @tests.each do |t| %>
         <tr class="table-secondary">
-            <th scope="row"><%= t.test_customer %></th>
-            <td><%= t.test_scenario %></td>
+            <th scope="row"><%= link_to (t.test_customer + " - " + t.test_scenario), t, class: "test-link" %></th>
             <td><%= link_to 'edit', edit_test_path(t), class: "test-edit" %> | 
             <%= link_to 'delete', test_path(t), class: "test-delete", data: { confirm: 'Are you sure?' }, method: :delete %></td>
         </tr>

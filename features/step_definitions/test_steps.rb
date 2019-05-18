@@ -1,7 +1,7 @@
 Given("a web browser is at the test page") do
-    FactoryBot.create(:customer,
+  FactoryBot.create(:customer,
                     customer_name: "Customer ABC")
-    FactoryBot.create(:scenario,
+  FactoryBot.create(:scenario,
                     scenario_name: "Scenario 123")
     visit tests_path
 end
@@ -22,6 +22,7 @@ Then("a new test should be created") do
 end
 
 When("the Manage tests link is clicked") do
+    
     FactoryBot.create(:test,
                     test_customer: "Customer 123",
                     test_scenario: "Scenario ABC")
@@ -35,6 +36,10 @@ Then("show me a list of existing tests") do
 end
 
 Given("a test has been created") do
+  FactoryBot.create(:customer,
+                    customer_name: "Customer ABC")
+  FactoryBot.create(:scenario,
+                    scenario_name: "Scenario 123")
   FactoryBot.create(:test,
                     test_customer: "Customer XYZ",
                     test_scenario: "Scenario 123")
@@ -46,8 +51,8 @@ end
 
 When("the test edit form has been filled in and submitted") do
   expect(page).to have_content("Edit test")
-  fill_in "test_test_customer", :with => "Customer zzz"
-  fill_in "test_test_scenario", :with => "Scenario xxx"
+  fill_in "Test customer", with: "Customer zzz"
+  fill_in "test_test_scenario", with: "Scenario xxx"
   click_button "Update Test"
 end
 
@@ -57,10 +62,18 @@ Then("the new test details should be shown") do
 end
 
 When("the delete test link is clicked") do
-  @test = Test.last
-  find("a[href='#{test_path(@test)}']").click
+  click_on(class: 'test-delete')
 end
 
 Then("the test should be deleted") do
   expect(page).to have_content("Test was successfully deleted.")
+end
+
+When("the test link is clicked") do
+  click_on(class: 'test-link')
+end
+
+Then("show the details of the test") do
+  expect(page).to have_content("Test details")
+  expect(page).to have_button("Add event")
 end

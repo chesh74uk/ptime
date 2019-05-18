@@ -27,3 +27,9 @@ Feature: Test
     And a web browser is at the test page
     When the delete test link is clicked
     Then the test should be deleted
+    
+  Scenario: Show test details
+    Given a test has been created
+    And a web browser is at the test page
+    When the test link is clicked
+    Then show the details of the test

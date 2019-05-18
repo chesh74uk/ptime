@@ -15,8 +15,9 @@ class TestsController < ApplicationController
   end
 
   def edit
-    @customers = Customer.order(:customer_name).pluck(:customer_name)
-    @scenarios = Scenario.order(:scenario_name).pluck(:scenario_name)
+  end
+  
+  def show
   end
 
   def update
