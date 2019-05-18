@@ -1,0 +1,6 @@
+<%= simple_form_for ([@test, @event]) do |e| %>
+            <%= e.input :event_name  %>
+            <%= e.input :event_date  %>
+            <%= e.input :event_outcome  %>
+            <%= e.button :submit, class: "btn btn-primary" %>
+<% end %>

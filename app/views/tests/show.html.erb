@@ -1,3 +1,27 @@
 <h3>Test details</h3>
 <h5><%= @test.test_customer + " - " + @test.test_scenario %></h5>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Events</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= @test.events.each do |te| %>
+        <tr class="table-secondary">
+            <th scope="row"><%= te.event_date.strftime("%d/%m/%Y") if te.event_date.present? %></th>
+            <td><%= te.event_name %></td>
+            <td><%= te.event_outcome %></td>
+            <td><%= link_to 'edit', edit_test_event_path(@test, te), class: "event-edit" %> | 
+                <%= link_to 'delete', test_event_path(@test, te), data: { confirm: 'Are you sure?' }, method: :delete, class: "event-delete" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
 <%= button_to "Add event", new_test_event_path(@test), method: :get, class: "btn btn-primary" %>
+
+

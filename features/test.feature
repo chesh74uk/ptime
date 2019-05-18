@@ -22,7 +22,7 @@ Feature: Test
     And the test edit form has been filled in and submitted
     Then the new test details should be shown
 
-  Scenario: Delete scenarios
+  Scenario: Delete tests
     Given a test has been created
     And a web browser is at the test page
     When the delete test link is clicked
